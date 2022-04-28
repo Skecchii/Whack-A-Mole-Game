@@ -1,0 +1,53 @@
+.header {
+    border: solid 1px black; /*remove later*/
+    margin-left: 13rem;
+    margin-top: 3rem;
+    margin-bottom: -13rem;
+    height: 20vh;
+    width: 50vw;
+    padding: auto; 
+}
+
+.display {
+    display: flex;
+    justify-content: space-evenly;
+    padding-inline: 6rem;
+    margin-top: 15rem;
+    margin-bottom: -18rem;
+}
+
+#score {
+    border: solid 1px black;
+    width: 10vw;
+    height: 10vh;
+    padding-inline: 5rem;
+}
+
+#timer {
+    border: solid 1px black;
+    width: 10vw;
+    height: 10vh;
+    margin-left: auto;
+    padding-inline: 5rem;
+}
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(4, auto);
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 75vw;
+    height: 60vh;
+    margin: 6.4rem;
+    margin-top: 20rem;
+}
+
+.holes {
+    width: 17vw;
+    height: 17vh;
+    border: solid 1px black;
+    margin-top: 12px;
+}

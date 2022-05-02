@@ -1,25 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    max-height: 100%;
-    margin: 0 auto;
-    justify-content: center;
+    font-family: Helvetica;
+    background-image: url(img/grass.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .header {
     height: 150px;
     width: 700px;
     margin: 0 auto;
-    margin-bottom: -170px;
-    margin-top: -25px;
+    margin-bottom: -300px;
+    margin-top: 20px;
 }
 
 .display {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-    flex-wrap: wrap;
-    gap: 50px;
-    margin-right: 140px;
-    margin-bottom: -280px;
+    width: 180px;
+    height: 520px;
+    position: absolute;
+    top: 50px;
+    left: 1130px;
 }
 
 .header h1 {
@@ -27,59 +34,87 @@ body {
     text-align: center;
 }
 
-#score, #timer {
+#score {
     font-size: 30px;
-    font-family: helvetica;
-    line-height: 20px;
-    width: 70px;
-    height: 5px;
-    margin-top: 150px;
+    line-height: 60px;
+    width: 175px;
+    height: 115px;
+    margin-top: 190px;
 }
 
+#timer {
+    font-size: 30px;
+    line-height: 60px;
+    width: 175px;
+    height: 115px;
+    margin-top: 60px;
+}
 .grid {
-    display: grid;
-    grid-template-columns: repeat(4, 210px);
-    gap: 25px;
-    width: 905px;
-    height: 450px;
-    align-items: center;
+    width: 1130px;
+    height: 950px;
+    transform: scale(60%);
     margin: 0 auto;
-    margin-top: 70px;
-    
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 .holes {
-    width: 200px;
-    height: 80px;
+    width: 250px;
+    height: 300px;
+    top: 0;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.holes:after {
+    content: '';
+    display: block;
     background-image: url(img/hole.png);
     background-repeat: no-repeat;
-    background-position: bottom;
-    
+    background-size: contain;
+    position: absolute;
+    width: 100%;
+    height: 85px;
+    bottom: -20px;
 }
 
 .moles {
-    background-color: red;
+    pointer-events: all;
+    background-image: url(img/mole.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    transform: scale(85%);
+    position: absolute;
+    margin-top: 8px;
+    height: 100%;
+    width: 100%;
+    top: 100%;
+    transition: 0.4s;
+}
+
+.holes.peep .moles {
+    top: 0;
 }
 
 #startBtn {
-    display: flex;
+    font-size: 7px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    border: none;
+    display: inline-flex;
     justify-content: center;
-    margin: 0 auto;
-    margin-top: 300px;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin-left: 680px;
+    margin-top: 400px;
     transform: scale(1000%);
-    height: 20px;
-    width: 50px;
-}
-
-.getReady {
-    font-size: 200px;
-    width: 50px;
-    margin: 0 auto;
-    margin-top: 130px;
-    margin-bottom: -220px;
 }
 
 .hide {
     display: none;
 }
-

@@ -1,28 +1,29 @@
 const startBtn = document.querySelector('#startBtn')
 const hideStart = document.querySelector('.start-button')
-const getReady = document.querySelector('.getReady')
+const restartBtn = document.querySelector('#restart')
 const timer = document.querySelector('#timer h2')
 const score = document.querySelector('#score h2')
 const holes = document.querySelectorAll('.holes')
-const moles = document.querySelector('.mole')
-const hideClasses = document.querySelector('.hide')
+const moles = document.querySelectorAll('.moles')
+const hiddenClasses = document.querySelector('.hide')
 
+let lastHole
 let gameOver = false
-let gameTimer = 5
+let gameTimer = 30
+let scoreCount = 0
 
 // starts game when button clicked
 let gameStart = () => {
     hideStart.classList.add('hide')
-    hideClasses.classList.remove('hide')
+    hiddenClasses.classList.remove('hide')
     
     // delays the game from starting immediately after button press
-    let prepTimer = 4
+    let prepTimer = 2
     const countDown = setInterval(() => {
     prepTimer--
-    getReady.textContent = prepTimer
     if (prepTimer <= 0) {
         clearInterval(countDown)
-        getReady.classList.add('hide')
+        hiddenClasses.classList.remove('hide')
         
         // starts the game timer
         let gameTime = setInterval(() => {
@@ -34,10 +35,9 @@ let gameStart = () => {
     }
         },1000)
        
-        // timer for the game to finish
+        // timer for the game to end
         setTimeout (() => {
         peep()
-        scoreCount = 0
         }, gameTimer)
     }
 }, 1000)
@@ -48,27 +48,36 @@ let gameStart = () => {
 let randomHole = () => {
     let randomNum = Math.floor(Math.random() * holes.length)
     let hole = holes[randomNum]
+
+    // prevents the same hole from being selected
+    if (hole === lastHole) {
+        return randomHole()
+    }
+    lastHole = hole
     return hole
 }
 
 // mole peeps out of the random hole
 let peep = () => { 
-    let hole = randomHole()
-    hole.classList.add('moles')
-    console.log(hole)
+    const hole = randomHole()
+    hole.classList.add('peep')
     setTimeout(() => {
-
-        hole.classList.remove('moles')
+        hole.classList.remove('peep')
         if (!gameOver) peep()
-    }, Math.floor(Math.random() * 1300))
+    }, Math.random() * 300 + 800)
 }
 
 // bonk the mole to earn points
-let bonk = (e) => {
-    scoreCount += 10
+function bonk(e) {
+    scoreCount++
+    this.style.backgroundImage = 'url("img/moleHit.png")'
+    this.style.pointerEvents = 'none'
+    setTimeout(() => {
+        this.style.backgroundImage = 'url("img/mole.png")'
+        this.style.pointerEvents = 'all'
+    }, 750);
     score.textContent = scoreCount
 }
 
-
-holes.forEach(hole => hole.addEventListener('click', bonk))
+moles.forEach(mole => mole.addEventListener('click', bonk))
 startBtn.addEventListener('click', gameStart)

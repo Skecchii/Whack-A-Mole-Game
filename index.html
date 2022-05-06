@@ -4,16 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script defer src="app.js"></script>
+    <link rel="stylesheet" href="styles/style.css"/>
+    <script defer src="scripts/app.js"></script>
     <title>Whack-A-Mole</title>
 </head>
 <body>
     <div class="header">
         <h1>Whack-A-Mole</h1>
     </div>
+    <div class="results hide2">
+        <div>
+            <h1 id="result-display1">Time's Up!!!!</h1>
+            <h2 id="result-display2"></h2>
+        </div>
+        <div>
+            <button id="restart">play again</button>
+        </div>
+    </div>
     <div>
-        <h1 class="getReady"></h1>
+        <h1 class="getReady">3</h1>
     </div>
     <div class="start-button">
         <button id="startBtn">START</button>
@@ -26,7 +35,7 @@
             </div>
             <div id="timer">
                 <h1>Time</h1>
-                <h2>30</h2>
+                <h2>15</h2>
             </div>
         </div>
         <div class="grid">
@@ -66,9 +75,6 @@
             <div class="holes" id="12">
                 <div class="moles"></div>
             </div>
-        </div>
-        <div class="results">
-    
         </div>
     </div>
 </body>

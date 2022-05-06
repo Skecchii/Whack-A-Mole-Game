@@ -6,7 +6,7 @@
 
 body {
     font-family: Helvetica;
-    background-image: url(img/grass.png);
+    background-image: url(../img/grass.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -54,7 +54,7 @@ body {
     height: 950px;
     transform: scale(60%);
     margin: 0 auto;
-    margin-top: 40px;
+    margin-top: 45px;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
@@ -72,7 +72,7 @@ body {
 .holes:after {
     content: '';
     display: block;
-    background-image: url(img/hole.png);
+    background-image: url(../img/hole.png);
     background-repeat: no-repeat;
     background-size: contain;
     position: absolute;
@@ -83,7 +83,7 @@ body {
 
 .moles {
     pointer-events: all;
-    background-image: url(img/mole.png);
+    background-image: url(../img/mole.png);
     background-repeat: no-repeat;
     background-position: bottom;
     transform: scale(85%);
@@ -93,6 +93,10 @@ body {
     width: 100%;
     top: 100%;
     transition: 0.4s;
+}
+
+.moles:hover {
+    cursor: pointer;
 }
 
 .holes.peep .moles {
@@ -115,6 +119,79 @@ body {
     transform: scale(1000%);
 }
 
-.hide {
+#startBtn:hover {
+    color: lightgray;
+    background: rgb(231, 3, 3);
+    cursor: pointer;
+}
+
+#restart {
+    width: 70px;
+    height: 20px;
+    font-size: 12px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: red;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transform: scale(200%);
+    margin-left: 310px;
+    margin-top: 590px;
+}
+
+#restart:hover {
+    color: lightgray;
+    background: rgb(231, 3, 3);
+    cursor: pointer;
+}
+
+#result-display1 {
+    font-size: 70px;
+    width: 600px;
+    height: 60px;
+    margin-bottom: -330px;
+    margin-top: 300px;
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+    padding-bottom: 20px;
+}
+
+#result-display2 {
+    font-size: 40px;
+    text-align: center;
+    width: 600px;
+    height: 140px;
+    margin-bottom: -560px;
+    margin-top: 340px;
+    margin-left: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.getReady {
+    font-size: 100px;
+    width: 50px;
+    margin: 0 auto;
+    margin-top: 250px;
+    margin-bottom: -370px;
+}
+
+.results {
+    background-color: rgb(221, 221, 150);
+    border-radius: 50px;
+    box-shadow: 0 0 50px 5px ;
+    width: 700px;
+    height: 350px;
+    margin: 0 auto;
+    top: 0%;
+}
+
+.hide, .hide2 {
     display: none;
 }
